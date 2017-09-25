@@ -6,6 +6,7 @@ output: pdf_document
 ---
 
 <center>
+    
 # Puppet
 
 ---
@@ -451,8 +452,8 @@ each ( $facts['partitions'] ) | $devname, $devprops | {
 }
 ```
 
-![alt text](afbeeldingen/iteratie_door_fact-collecties1.png "iteratie 1")
-![alt text](afbeeldingen/iteratie_door_fact-collecties2.png "iteratie 2")
+![alt text](iteratie_door_fact-collecties1.png "iteratie 1")
+![alt text](iteratie_door_fact-collecties2.png "iteratie 2")
 *Voor namen van de collections (devnames en devprops):* [doc puppet](https://docs.puppet.com/facter/3.4/core_facts.html "puppet docs facts")
 
 ---
