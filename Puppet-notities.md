@@ -6,7 +6,7 @@ output: pdf_document
 ---
 
 <center>
-# Puppet
+#Puppet
 
 ---
 </center>
@@ -34,7 +34,7 @@ output: pdf_document
 
 ---
 
-## Wat is Puppet:
+##Wat is Puppet:
 
 **Puppet:** management software waarmee grote aantallen servers beheerd worden.
 zoals:
@@ -49,7 +49,7 @@ gebruikt worden om bijvoorbeeld snel extra webservers te installeren.*
 
 ---
 
-## Masterless - Puppet Apply:
+##Masterless - Puppet Apply:
 *We maken een testserver om Puppet Apply te demonstreren*
 
 ```
@@ -122,7 +122,7 @@ etdev', 'lxd'],
 ```
 
 ---
-## Puppet Resources:
+##Puppet Resources:
 
 **Syntax van een resource:**
 
@@ -175,7 +175,7 @@ file { '/etc/motd' :
 ```
 
 ---
-## The big three:
+##The big three:
 **Om services te installeren, maken we gebruik van 3 resource types:**
     * package
     * file
@@ -202,7 +202,7 @@ service {'NTP_Service':
 ```
 
 ---
-## Working with users:
+##Working with users:
 **Indien we een user toevoegen, moeten we hem ook een paswoord geven:**
 ```
 vi adduser.pp
@@ -225,7 +225,7 @@ sudo puppet apply adduser.pp
 ```
 *Indien de pw_hash niet gekend is, moeten we de standard library module nog installeren met:* **sudo puppet module install puppetlabs/stdlib**
 ---
-## Configureren van de host-file:
+##Configureren van de host-file:
 **We kunnen ook name-resolving aanpassen via de hosts-file:**
 ```
 vi confighost.pp
@@ -249,7 +249,7 @@ ping webserver.sysnet.lan
 ```
 
 ---
-## Een commando uitvoeren:
+##Een commando uitvoeren:
 **Indien we een commando willen uitvoeren, maken we gebruik van de exec-resource:**
 ```
 vi execute.pp
@@ -272,7 +272,7 @@ sudo puppet apply execute.pp
 ```
 
 ---
-## Werken met variabelen:
+##Werken met variabelen:
 **Soms is het handiger of overzichtelijker om te werken met variabelen:**
 ```
 $package2install = 'ntp'    
@@ -299,7 +299,7 @@ notify {"The user’s name is ${user['username']}": }
 
 ---
 
-## Instellen van Resource Defaults:
+##Instellen van Resource Defaults:
 **Indien we een Resource-naam laten beginnen met een hoofdletter, kunnen we default waarden toekennen:**
 ```
 vi files.pp
@@ -323,7 +323,7 @@ file { '/tmp/eennieuwedir/tweedefile':
 
 ---
 
-## Werken met facter:
+##Werken met facter:
 **Facts zijn OS/hardware-kenmerken die op de agent worden verzameld, om naar de server te worden verstuurd, om daar een catalog te compileren. Op de client kunnen we deze facts ook opvragen met het commando facter:**
 
 ```
@@ -343,7 +343,7 @@ notify {"Het OS Family is: $family" :}
 
 ---
 
-## Werken met condities:
+##Werken met condities:
 **Het krachtige is dat we facter en condities samen kunnen laten beslissen over situaties:**
 ```
 vi conditions.pp
@@ -372,7 +372,7 @@ unless $facts[os][family] == 'RedHat' {
 }
 ```
 
-### Werken met de selector (condition):
+###Werken met de selector (condition):
 **De selector is ook een verkorte vorm om condities te gebruiken:**
 ```
 vi selector.pp
@@ -390,7 +390,7 @@ service {'NTP_Service':
 ...
 ```
 
-### Werken met case (condition):
+###Werken met case (condition):
 **We werken met case indien we meerde waarden telkens willen veranderen:**
 ```
 vi case.pp
@@ -423,7 +423,7 @@ service {'NTP_Service':
 
 ---
 
-## Werken met regular expressions:
+##Werken met regular expressions:
 **Bij regular expressions omsluiten we de strings met forward-slashes in plaats van dubbele-quotes:**
 ```
 vi regularexp.pp
@@ -440,7 +440,7 @@ elsif $facts['networking']['fqdn']=~ /\.sysnet\.lan$/ {
 
 ---
 
-## Iteratie door fact-collecties:
+##Iteratie door fact-collecties:
 ```
 vi collections.pp
 
@@ -457,7 +457,7 @@ each ( $facts['partitions'] ) | $devname, $devprops | {
 
 ---
 
-## Volgorde van de Resources:
+##Volgorde van de Resources:
 **Vanaf puppet 4 worden de resources uitgevoerd in de volgorde als ze voorkomen in het manifest.**
 
 **We kunnen ook een volgorde opleggen:**
@@ -483,7 +483,7 @@ service {'testservice':
 
 ---
 
-## Puppet Forge:
+#Puppet Forge:
 **We kunnen modules downloaden van Puppet Forge, zodanig dat we het wiel niet opnieuw moeten uitvinden:**
     
 * Surf naar [puppet forge](https://forge.puppet.com "Puppet Forge")
@@ -521,11 +521,11 @@ docroot => '/var/www/html',     # en zijn document-root heeft in /var/www/html
 
 ---
 
-## Aanmaken van de PuppetServer en de PuppetNode:
+##Aanmaken van de PuppetServer en de PuppetNode:
 *Zie de manifest files en de oefeningen*
 
 ---
 
 ---
 
-# Oefeningen:
+#Oefeningen:
